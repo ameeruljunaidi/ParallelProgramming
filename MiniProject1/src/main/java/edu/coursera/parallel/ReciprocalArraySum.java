@@ -154,6 +154,13 @@ public final class ReciprocalArraySum {
                 ReciprocalArraySumTask right = new ReciprocalArraySumTask(mid, endIndexExclusive, input);
                 invokeAll(left, right);
 
+                // In the lecture example, the professor did it this way
+                // left.fork()
+                // right.compute()
+                // left.join()
+                // ans = left.ans + right.ans
+                // Either way works, it seems
+
                 value = left.getValue() + right.getValue();
             }
         }
